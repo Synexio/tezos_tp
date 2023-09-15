@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52bd36af-f32f-4231-93cd-a83d17aec3e2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/scripts/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contracts/main.mligo" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/main.mligo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +37,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\alexh\OneDrive\Bureau\ESGI\5eme annee\Tezos\tezos_tp" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alexh\OneDrive\Bureau\ESGI\5eme annee\Tezos\tezos_tp\scripts" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -41,7 +49,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694765053921</updated>
-      <workItem from="1694765056370" duration="9396000" />
+      <workItem from="1694765056370" duration="13176000" />
     </task>
     <servers />
   </component>

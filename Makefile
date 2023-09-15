@@ -1,5 +1,5 @@
 LIGO_VERSION=0.73.0
-LIGO=docker run --rm -v "C:\Users\alexh\OneDrive\Bureau\ESGI\5eme annee\Tezos\tezos_cameligo":/home/usr/ligo -w /home/usr/ligo ligolang/ligo:$(LIGO_VERSION)
+LIGO=docker run --rm -v "C:\Users\alexh\OneDrive\Bureau\ESGI\5eme annee\Tezos\tezos_tp":/home/usr/ligo -w /home/usr/ligo ligolang/ligo:$(LIGO_VERSION)
 #LIGO=docker run --rm -v $(PWD):/home/usr/ligo -w /home/usr/ligo ligolang/ligo:$(LIGO_VERSION)
 
 image=oxheadalpha/flextesa:20230901
@@ -18,8 +18,9 @@ all: install compile test run-deploy
 ###################################
 
 install:
-	@npm install
+#@npm install
 #@yarn --cwd ./scripts/ install
+	@$(LIGO) install
 
 ###################################
 
