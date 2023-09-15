@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52bd36af-f32f-4231-93cd-a83d17aec3e2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/contracts/errors.mligo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contracts/main.mligo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/errors.mligo" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/errors.mligo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/main.mligo" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/main.mligo" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +42,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694765053921</updated>
-      <workItem from="1694765056370" duration="1819000" />
+      <workItem from="1694765056370" duration="2765000" />
     </task>
     <servers />
   </component>
