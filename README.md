@@ -1,7 +1,6 @@
 # Project : NFT Factory
 
 ![Logo](https://bakingtacos.com/img/profile.png)
-NFT Factory
 
 ## Table of Contents
 
@@ -39,24 +38,36 @@ The project should allow:
 ### Installation
 
 Install Ligo libraries
-```make install```
+```shell
+make install
+```
 
 ## Usage
 
 Compile LIGO Smart Contract
-```make compile```
+```shell
+make compile
+```
 
 Run LIGO tests
-```make test```
+```shell
+make test
+```
 
 Deploy
-```make run-deploy```
+```shell
+make run-deploy
+```
 
 Start Flextesa sandbox
-```make sandbox-start```
+```shell
+make sandbox-start
+```
 
 Stop Flextesa sandbox
-```make sandbox-stop```
+```shell
+make sandbox-stop
+```
 
 ## Smart Contract Details
 
