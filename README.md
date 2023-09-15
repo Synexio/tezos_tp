@@ -1,4 +1,4 @@
-# Project : NFT Factory
+# Project : NFT Factory by Alexandre Hannagan
 
 ![Logo](https://bakingtacos.com/img/profile.png)
 
@@ -80,7 +80,7 @@ type t = {
     operators: (address, bool) map;
     whitelist: (address, bool) map;
     blacklist: (address, bool) map;
-    collections: (address, address) map;
+    collections: (address, address) map; (*WORK IN PROGRESS*)
 }
 ```
 
@@ -93,7 +93,7 @@ List of the entrypoints
     | Accept_operator_role of unit
     | Ban_creator of address
     | Add_whitelist of unit
-    | Create_collection of (address * string) // WORK IN PROGRESS
+    | Create_collection of (address * string) (*WORK IN PROGRESS*)
 ```
 
 ## License
