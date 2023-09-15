@@ -1,3 +1,7 @@
 let only_admin = "Only admin can check winner"
 let only_pending = "You do not have a pending invitation"
-let already_operator = "You already are an operator"
+let already_operator = "User is already an operator"
+let not_operator = "User is not an operator"
+let already_banned = "Creator is already banned"
+let not_enough_tez = "Not enough tez sent"
+let already_whitelisted = "You are already whitelisted"
