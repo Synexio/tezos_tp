@@ -1,1 +1,90 @@
-# tezos_tp
+# Project : NFT Factory
+
+![Project Logo or Banner Image](data:image/jpeg;base64,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) <!-- Optional -->
+
+NFT Factory
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+- [Usage](#usage)
+- [Smart Contract Details](#smart-contract-details)
+    - [Storage Structure](#storage-structure)
+    - [Entry Points](#entry-points)
+- [License](#license)
+
+## Overview
+
+The purpose of this project is to create a complete Tezos dApp acting as an FA2 NFT factory.
+
+## Features
+
+The project should allow:
+
+* Interacting with contracts through a Makefile at the root (compile, test, deploy).
+* Start/stop a Tezos node on Flextesa locally.
+* Deploy smart contracts on Flextesa.
+
+## Getting Started
+
+### Prerequisites
+
+* Docker
+* Make
+* Node
+
+### Installation
+
+```make install```
+
+## Usage
+
+Compile LIGO Smart Contract
+```make compile```
+
+Run LIGO tests
+```make test```
+
+Deploy
+```make run-deploy```
+
+Start Flextesa sandbox
+```make sandbox-start```
+
+Stop Flextesa sandbox
+```make sandbox-stop```
+
+## Smart Contract Details
+
+### Storage Structure
+
+Storage is of type :
+```ocaml
+type t = {
+    admin: address;
+    operators: (address, bool) map;
+    whitelist: (address, bool) map;
+    blacklist: (address, bool) map;
+    collections: (address, address) map;
+}
+```
+
+### Entry Points
+
+List of the entrypoints 
+```ocaml
+      Add_operator of address
+    | Remove_operator of address
+    | Accept_operator_role of unit
+    | Ban_creator of address
+    | Add_whitelist of unit
+    | Create_collection of (address * string) // WORK IN PROGRESS
+```
+
+## License
+
+GNU Affero General Public License v3.0

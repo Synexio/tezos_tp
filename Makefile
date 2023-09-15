@@ -42,11 +42,6 @@ run-deploy:
 
 ###################################
 
-run-submit:
-	@npm run submit
-
-###################################
-
 sandbox-start:
 	@docker run --rm --name flextesa-sandbox --detach -p 20000:20000 \
             -e block_time=3 \
