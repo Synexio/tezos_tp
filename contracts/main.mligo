@@ -52,23 +52,81 @@ let add_whitelist (store: Storage.t): Storage.t =
                 {store with whitelist = updated_whitelist}
 
 
-//let create_collection (owner: address) (name: string) (store: Storage.t): Storage.t =
-//    let collection_contract = FA2.storage in
-//
-//    let (contract_address: (operation * address)) = create_contract(FA2, collection_contract) in
-//    let updated_collection = Map.add (Tezos.get_sender ()) contract_address store.collections in
-//    {store with collections = updated_collections}
+/////////////////////////////
+
+(* 1er essai CREATE_CONTRACT
+let create_collection (owner: address) (name: string) (store: Storage.t): Storage.t =
+    let collection_contract = FA2.storage in
+
+    let (contract_address: (operation * address)) = create_contract(FA2, collection_contract) in
+    let updated_collection = Map.add (Tezos.get_sender ()) contract_address store.collections in
+    {store with collections = updated_collections}
+*)
+
+/////////////////////////////
+
+(* Test NFT-factory-cameligo mais ça fait pas 2 lignes
+let generateCollection(param, store : Parameter.generate_collection_param * Storage.t) : return =
+    // create new collection
+    let token_ids = param.token_ids in
+    let sender = Tezos.get_sender () in
+    let ledger = (Big_map.empty : NFT_FA2.Storage.Ledger.t) in
+    let myfunc(acc, elt : NFT_FA2.Storage.Ledger.t * nat) : NFT_FA2.Storage.Ledger.t = Big_map.add elt sender acc in
+    let new_ledger : NFT_FA2.Storage.Ledger.t = List.fold myfunc token_ids ledger in
+
+    let token_usage = (Big_map.empty : NFT_FA2.TokenUsage.t) in
+    let initial_usage(acc, elt : NFT_FA2.TokenUsage.t * nat) : NFT_FA2.TokenUsage.t = Big_map.add elt 0n acc in
+    let new_token_usage = List.fold initial_usage token_ids token_usage in
+
+    let token_metadata = param.token_metas in
+    let operators = (Big_map.empty : NFT_FA2.Storage.Operators.t) in
 
 
+    let initial_storage : ext_storage = {
+        ledger=new_ledger;
+        operators=operators;
+        token_ids=token_ids;
+        token_metadata=token_metadata;
+        extension = {
+          admin=sender;
+          token_usage=new_token_usage;
+        }
+    }  in
 
+    let initial_delegate : key_hash option = (None: key_hash option) in
+    let initial_amount : tez = 1tez in
+    let create_my_contract : lambda_create_contract =
+      [%Michelson ( {| {
+            UNPAIR ;
+            UNPAIR ;
+            CREATE_CONTRACT
+#include "generic_fa2/compiled/fa2_nft.tz"
+               ;
+            PAIR } |}
+              : lambda_create_contract)]
+    in
+    let originate : operation * address = create_my_contract(initial_delegate, initial_amount, initial_storage) in
+    // insert into collections
+    let new_all_collections = Big_map.add originate.1 sender store.all_collections in
+    // insert into owned_collections
+    let new_owned_collections = match Big_map.find_opt sender store.owned_collections with
+    | None -> Big_map.add sender ([originate.1]: address list) store.owned_collections
+    | Some addr_lst -> Big_map.update sender (Some(originate.1 :: addr_lst)) store.owned_collections
+    in
+    ([originate.0], { store with all_collections=new_all_collections; owned_collections=new_owned_collections})
+*)
 
-//[@view] let check_collections (creator: address option) (store: Storage.t): (address, address) map =
-//  if (Option.is_none creator)
-//    then
-//        store.collections
-//    else
-//        let user_collections = Map.find_opt creator store.collections in
-//        user_collections
+/////////////////////////////
+
+(* View bug en rapport avec l'option
+[@view] let check_collections (creator: address option) (store: Storage.t): (address, address) map =
+  if (Option.is_none creator)
+    then
+        store.collections
+    else
+        let user_collections = Map.find_opt creator store.collections in
+        user_collections
+*)
 
 let main(action: Parameter.t) (store: Storage.t): return =
   match action with
