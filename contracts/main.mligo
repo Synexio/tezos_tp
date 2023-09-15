@@ -62,19 +62,19 @@ let add_whitelist (store: Storage.t): Storage.t =
 
 
 
-[@view] let check_collections (creator: address option) (store: Storage.t): (address, address) map =
-  if (Option.is_none creator)
-    then
-        store.collections
-    else
-        let user_collections = Map.find_opt creator store.collections in
-        user_collections
+//[@view] let check_collections (creator: address option) (store: Storage.t): (address, address) map =
+//  if (Option.is_none creator)
+//    then
+//        store.collections
+//    else
+//        let user_collections = Map.find_opt creator store.collections in
+//        user_collections
 
-let main(action: Parameter.t)(store: Storage.t): operation list * Storage.t =
-    match action with
-    | Add_operator (p) -> add_operator p store
-    | Remove_operator (p) -> remove_operator p store
-    | Accept_operator_role -> accept_operator_role store
-    | Ban_creator (p) -> ban_creator p store
-    | Add_whitelist -> add_whitelist store
-    | Create_collection (p) -> create_collection p store
+let main(action: Parameter.t) (store: Storage.t): return =
+  match action with
+  | Add_operator (p) -> ([], add_operator p store)
+  | Remove_operator (p) -> ([], remove_operator p store)
+  | Accept_operator_role -> ([], accept_operator_role store)
+  | Ban_creator (p) -> ([], ban_creator p store)
+  | Add_whitelist -> ([], add_whitelist store)
+//  | Create_collection (p) -> (create_collection p store, store)

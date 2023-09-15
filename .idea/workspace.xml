@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52bd36af-f32f-4231-93cd-a83d17aec3e2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/contracts/parameter.mligo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contracts/storage.mligo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/accounts.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/deploy.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/sandbox_start" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contracts/main.mligo" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/main.mligo" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,12 +27,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.env" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/scripts" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alexh\OneDrive\Bureau\ESGI\5eme annee\Tezos\tezos_tp\scripts" />
       <recent name="C:\Users\alexh\OneDrive\Bureau\ESGI\5eme annee\Tezos\tezos_tp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">

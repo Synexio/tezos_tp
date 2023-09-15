@@ -1,0 +1,173 @@
+{ parameter
+    (or (or (or (unit %accept_operator_role) (address %add_operator))
+            (or (unit %add_whitelist) (address %ban_creator)))
+        (address %remove_operator)) ;
+  storage
+    (pair (pair (pair (address %admin) (map %blacklist address bool))
+                (map %collections address address)
+                (map %operators address bool))
+          (map %whitelist address bool)) ;
+  code { PUSH string "Only admin can check winner" ;
+         PUSH string "User is already an operator" ;
+         DIG 2 ;
+         UNPAIR ;
+         IF_LEFT
+           { IF_LEFT
+               { IF_LEFT
+                   { DIG 3 ;
+                     DROP 2 ;
+                     DUP ;
+                     CAR ;
+                     CDR ;
+                     CDR ;
+                     SENDER ;
+                     GET ;
+                     IF_NONE
+                       { DROP 2 ; PUSH string "You do not have a pending invitation" ; FAILWITH }
+                       { IF { DROP ; FAILWITH }
+                            { SWAP ;
+                              DROP ;
+                              DUP ;
+                              CAR ;
+                              CDR ;
+                              CDR ;
+                              PUSH bool True ;
+                              SOME ;
+                              SENDER ;
+                              PAIR 3 ;
+                              DUP 2 ;
+                              DIG 2 ;
+                              CAR ;
+                              DUP ;
+                              CDR ;
+                              DIG 3 ;
+                              UNPAIR 3 ;
+                              UPDATE ;
+                              UPDATE 2 ;
+                              UPDATE 2 ;
+                              UPDATE 1 } } }
+                   { SENDER ;
+                     DUP 3 ;
+                     CAR ;
+                     CAR ;
+                     CAR ;
+                     COMPARE ;
+                     NEQ ;
+                     IF { DIG 3 ; FAILWITH } { DIG 3 ; DROP } ;
+                     DUP 2 ;
+                     CAR ;
+                     CDR ;
+                     CDR ;
+                     DUP 2 ;
+                     GET ;
+                     IF_NONE
+                       { DIG 2 ;
+                         DROP ;
+                         DUP 2 ;
+                         DUP 3 ;
+                         CAR ;
+                         DUP ;
+                         CDR ;
+                         DIG 4 ;
+                         CAR ;
+                         CDR ;
+                         CDR ;
+                         PUSH bool False ;
+                         DIG 5 ;
+                         SWAP ;
+                         SOME ;
+                         SWAP ;
+                         UPDATE ;
+                         UPDATE 2 ;
+                         UPDATE 2 ;
+                         UPDATE 1 }
+                       { DROP 3 ; FAILWITH } } }
+               { DIG 2 ;
+                 DROP ;
+                 IF_LEFT
+                   { DIG 2 ;
+                     DROP 2 ;
+                     PUSH mutez 10000000 ;
+                     AMOUNT ;
+                     COMPARE ;
+                     NEQ ;
+                     IF { PUSH string "Not enough tez sent" ; FAILWITH } {} ;
+                     DUP ;
+                     CDR ;
+                     SENDER ;
+                     GET ;
+                     IF_NONE
+                       { DUP ; CDR ; PUSH bool True ; SOME ; SENDER ; UPDATE ; UPDATE 2 }
+                       { DROP 2 ; PUSH string "You are already whitelisted" ; FAILWITH } }
+                   { SENDER ;
+                     DUP 3 ;
+                     CAR ;
+                     CAR ;
+                     CAR ;
+                     COMPARE ;
+                     NEQ ;
+                     IF { DIG 2 ; FAILWITH } { DIG 2 ; DROP } ;
+                     DUP 2 ;
+                     CAR ;
+                     CAR ;
+                     CDR ;
+                     DUP 2 ;
+                     GET ;
+                     IF_NONE
+                       { DUP 2 ;
+                         DUP 3 ;
+                         CAR ;
+                         DUP ;
+                         CAR ;
+                         DIG 4 ;
+                         CAR ;
+                         CAR ;
+                         CDR ;
+                         PUSH bool True ;
+                         DIG 5 ;
+                         SWAP ;
+                         SOME ;
+                         SWAP ;
+                         UPDATE ;
+                         UPDATE 2 ;
+                         UPDATE 1 ;
+                         UPDATE 1 }
+                       { DROP 3 ; PUSH string "Creator is already banned" ; FAILWITH } } } }
+           { DIG 2 ;
+             DROP ;
+             SENDER ;
+             DUP 3 ;
+             CAR ;
+             CAR ;
+             CAR ;
+             COMPARE ;
+             NEQ ;
+             IF { DIG 2 ; FAILWITH } { DIG 2 ; DROP } ;
+             DUP 2 ;
+             CAR ;
+             CDR ;
+             CDR ;
+             DUP 2 ;
+             GET ;
+             IF_NONE
+               { DROP 2 ; PUSH string "User is not an operator" ; FAILWITH }
+               { DROP ;
+                 DUP 2 ;
+                 DUP 3 ;
+                 CAR ;
+                 DUP ;
+                 CDR ;
+                 DIG 4 ;
+                 CAR ;
+                 CDR ;
+                 CDR ;
+                 DIG 4 ;
+                 NONE bool ;
+                 SWAP ;
+                 UPDATE ;
+                 UPDATE 2 ;
+                 UPDATE 2 ;
+                 UPDATE 1 } } ;
+         NIL operation ;
+         PAIR } }
+
