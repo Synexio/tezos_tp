@@ -14,7 +14,18 @@ type extended_storage = extension storage
 
 type return = operation list * storage
 
+
+type extension2 =
+    | Add_operator of address
+    | Remove_operator of address
+    | Accept_operator_role of unit
+    | Ban_creator of address
+    | Add_whitelist of unit
+    | Create_collection of (address * string)
+
 type parameter = FA2.parameter
+type extended_parameter = enxtension2 parameter
+
 
 let add_operator (new_operator: address) (store: extended_storage): extended_storage =
   let () = if (store.admin <> Tezos.get_sender()) then (failwith Errors.only_admin) in
@@ -83,3 +94,9 @@ let main(action: parameter)(store: extended_storage): operation list * storage =
     | Transfer (p) -> FA2.transfer p store
     | Balance_of (p) -> FA2.balance_of p store
     | Update_operators (p) -> FA2.update_ops p store
+    | Add_operator (p) -> add_operator p store
+    | Remove_operator (p) -> remove_operator p store
+    | Accept_operator_role -> accept_operator_role store
+    | Ban_creator (p) -> ban_creator p store
+    | Add_whitelist -> add_whitelist store
+    | Create_collection (p) -> create_collection p store
